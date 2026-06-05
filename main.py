@@ -100,6 +100,7 @@ def solve_boggle(grid, word_list, min_length=3):
 
 # ── API endpoints ─────────────────────────────────────────────────────────────
 @app.get("/")
+
 def health():
     return {"status": "ok", "words_loaded": len(WORD_LIST)}
 
@@ -120,3 +121,9 @@ def generate(min_length: int = 3):
         "valid_words": valid_words,
         "word_count":  len(valid_words),
     }
+
+# ── Run directly (used by Render via `python main.py`) ────────────────────────
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
