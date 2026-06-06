@@ -27,7 +27,7 @@ LETTER_FREQ = {
 WORD_LIST = []
 WORDS_FILE = os.path.join(os.path.dirname(__file__), "words.txt")
 if os.path.exists(WORDS_FILE):
-    with open(WORDS_FILE, "r", encoding="utf-8") as f:
+    with open(WORDS_FILE, "r", encoding="latin-1") as f:
         WORD_LIST = [line.strip().upper() for line in f if line.strip()]
     print(f"✓ Loaded {len(WORD_LIST):,} words")
 else:
